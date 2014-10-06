@@ -1,0 +1,9 @@
+
+cookbooks/*
+.vagrant
+db/*.sqlite3
+tmp/*
+log/*
+client/*.gem
+
+

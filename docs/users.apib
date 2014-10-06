@@ -1,0 +1,53 @@
+FORMAT: 1A
+
+# Example Users API [/]
+This is an example API for Users.
+
+## Retrieve documentation [GET]
+
++ Response 200 (text/html)
+
+# Users endpoint [/users]
+
+## Create a user [POST]
+
++ Request (application/json)
+
+        {
+          "email": "foo@bar.com"
+        }
+
++ Response 201
+    + Headers
+
+            Location: http://api.foobar.com/users/123
+
+## List all users [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            [
+              {
+                "id": 1,
+                "email": "foo@bar.com"
+              },
+              {
+                "id": 2,
+                "email": "baz@bux.com"
+              }
+            ]
+
+# Single User [/user/:id]
+
+## Fetch a single user [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+              {
+                "id": 1,
+                "email": "foo@bar.com"
+              }

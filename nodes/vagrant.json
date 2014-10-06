@@ -1,0 +1,34 @@
+{
+  "run_list": [
+    "apt",
+    "build-essential",
+    "mysql::server",
+    "mysql::client",
+    "ruby_build",
+    "rbenv::user",
+    "rbenv::vagrant",
+    "vim",
+    "ohai",
+    "nginx-app",
+    "api-example"
+  ],
+  "rbenv": {
+    "user_installs": [{
+      "user": "vagrant",
+      "rubies": ["1.9.3-p547"],
+      "global": "1.9.3-p547",
+      "gems": {
+        "1.9.3-p547": [{
+          "name": "bundler"
+        }]
+      }
+    }]
+  },
+  "mysql": {
+    "server_root_password": "changeme"
+  },
+  "nginx": {
+    "dir": "/etc/nginx",
+    "worker_processes": 4
+  }
+}
