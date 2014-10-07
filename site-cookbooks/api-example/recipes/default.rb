@@ -33,12 +33,26 @@ bash 'add-motd' do
    (_)         (_)(_)           _ (_) _
    (_)         (_)(_)          (_)(_)(_)
 
-    kill puma with:
+    Kill puma with:
       kill -s 9 \$(ps -ef | grep puma | head -n 1 | awk '{print \$2}')
 
-    start puma with:
+    Start the service with:
       cd /var/www/api-example
-      bundle exec puma -e development -t 2:4 -w 2 --preload -d
+      ruby app.rb -p9292
+
+    In production:
+      puma -w 4 -t 4:8 -e production -d -p9292
+
+    Add a new ActiveRecord migration:
+      rake db:create_migration NAME=<create_users>
+      # creates db/migrate/20141007164537_create_users.rb
+      # !! (only lower case letters, numbers, and '_' allowed in the name)
+
+    Run Database Migrations:
+      rake db:migrate
+
+    Run Tests:
+      bundle exec rspec
 
     " > /etc/motd.tail
   EOF
