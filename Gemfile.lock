@@ -1,7 +1,7 @@
 PATH
   remote: ./client
   specs:
-    api_client (0.0.1)
+    my_service (0.0.1)
       rails (~> 3.2.11)
 
 GEM
@@ -259,7 +259,6 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord (= 3.2.19)
-  api_client!
   bundler
   database_cleaner
   debugger
@@ -272,6 +271,7 @@ DEPENDENCIES
   json_spec
   knife-solo
   librarian-chef
+  my_service!
   mysql2
   puma
   rack-test

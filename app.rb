@@ -13,7 +13,7 @@ require 'ruby-debug'
 class User < ActiveRecord::Base
 end
 
-class App < Sinatra::Application
+class MyService < Sinatra::Application
 
   set :public_folder, Proc.new { File.join(root, "public") }
 
@@ -42,4 +42,4 @@ class App < Sinatra::Application
 
 end
 
-App.run
+MyService.run

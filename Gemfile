@@ -24,7 +24,7 @@ group :development, :test do
   gem 'shotgun' # Auto-reload sinatra app on change
 end
 
-gem 'api_client', path: './client'
+gem 'my_service', path: './client'
 
 group :test do
   gem 'rspec'

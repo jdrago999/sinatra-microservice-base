@@ -12,7 +12,7 @@ desc 'Interactive console with gem pre-loaded'
 task :console do
   require 'irb'
   require 'irb/completion'
-  require 'api_example'
+  require 'my_service'
 
   ARGV.clear
   puts "Console Ready! (note: all factories and models are loaded)"

@@ -6,7 +6,7 @@ describe 'Foo' do
       expect(User.count).to eq 0
     end
     it 'creates a user' do
-      ApiClient::Wrapper.create_user(email: 'foo@bar.com')
+      MyService::Client.create_user(email: 'foo@bar.com')
     end
   end
 end
