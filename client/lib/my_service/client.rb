@@ -7,7 +7,7 @@ module MyService
     def self.create_user(params)
       url = URI(MyService.base_url)
       url.path = '/users'
-      RestClient.log = $stderr
+      RestClient.log = nil
       RestClient.post(url.to_s, params)
     end
 

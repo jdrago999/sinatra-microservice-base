@@ -28,17 +28,16 @@ module MyService
 
     post '/users' do
       user = User.create(params)
-      p user
+      user.to_json
     end
 
     get '/users' do
-      p User.all.each.map{|user| {id: user.id, email: user.email}}.to_json
+      User.all.each.map{|user| {id: user.id, email: user.email}}.to_json
     end
 
     get '/users/:id' do
       user = User.find(params[:id])
-      data = {id: user.id, email: user.email}.to_json
-      p data
+      {id: user.id, email: user.email}.to_json
     end
 
   end
