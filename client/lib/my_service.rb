@@ -1,5 +1,8 @@
 
-module ApiClient
+require "my_service/version"
+require "my_service/client"
+
+module MyService
   def self.base_url=(url)
     @@base_url = url
   end

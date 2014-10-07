@@ -8,7 +8,7 @@ require 'debugger'
 require './app'
 Bundler.load
 
-require 'api_client'
+require 'my_service'
 
 RSpec.configure do |config|
   config.include WebMock::API
@@ -20,8 +20,8 @@ RSpec.configure do |config|
   end
 
   config.before :each do
-    ApiClient.base_url = 'http://test.host/'
-    stub_request(:any, /test.host/).to_rack(App)
+    MyService.base_url = 'http://test.host/'
+    stub_request(:any, /test.host/).to_rack(MyService::App)
     DatabaseCleaner.start
   end
 

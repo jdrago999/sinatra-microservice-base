@@ -13,33 +13,35 @@ require 'ruby-debug'
 class User < ActiveRecord::Base
 end
 
-class MyService < Sinatra::Application
+module MyService
+  class App < Sinatra::Application
 
-  set :public_folder, Proc.new { File.join(root, "public") }
+    set :public_folder, Proc.new { File.join(root, "public") }
 
-  before do
-    content_type :json
+    before do
+      content_type :json
+    end
+
+    after do
+      ActiveRecord::Base.connection.close
+    end
+
+    post '/users' do
+      user = User.create(params)
+      p user
+    end
+
+    get '/users' do
+      p User.all.each.map{|user| {id: user.id, email: user.email}}.to_json
+    end
+
+    get '/users/:id' do
+      user = User.find(params[:id])
+      data = {id: user.id, email: user.email}.to_json
+      p data
+    end
+
   end
-
-  after do
-    ActiveRecord::Base.connection.close
-  end
-
-  post '/users' do
-    user = User.create(params)
-    p user
-  end
-
-  get '/users' do
-    p User.all.each.map{|user| {id: user.id, email: user.email}}.to_json
-  end
-
-  get '/users/:id' do
-    user = User.find(params[:id])
-    data = {id: user.id, email: user.email}.to_json
-    p data
-  end
-
 end
 
-MyService.run
+MyService::App.run

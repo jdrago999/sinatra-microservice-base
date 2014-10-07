@@ -2,7 +2,7 @@ PATH
   remote: ./client
   specs:
     my_service (0.0.1)
-      rails (~> 3.2.11)
+      rails (~> 3.2.19)
 
 GEM
   remote: https://rubygems.org/
@@ -247,6 +247,102 @@ GEM
       hitimes
     treetop (1.4.15)
       polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
       polyglot (>= 0.3.1)
     tzinfo (0.3.41)
     webmock (1.19.0)

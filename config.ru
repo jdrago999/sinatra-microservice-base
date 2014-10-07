@@ -3,4 +3,4 @@ require './app'
 
 use Rack::ShowExceptions
 
-run MyService.new
+run MyService::App.new
