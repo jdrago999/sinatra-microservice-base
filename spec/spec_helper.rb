@@ -8,6 +8,7 @@ require 'ruby-debug'
 require 'factory_girl'
 require 'faker'
 require './app'
+ActiveRecord::Base.logger = nil
 Bundler.load
 
 require 'my_service'
@@ -18,7 +19,6 @@ end
 
 RSpec.configure do |config|
   config.include WebMock::API
-
 
   Dir["./spec/factories/**.rb"].each {|f| require f}
 

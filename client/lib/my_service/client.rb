@@ -11,8 +11,5 @@ module MyService
       RestClient.post(url.to_s, params)
     end
 
-
-    private
-
   end
 end
