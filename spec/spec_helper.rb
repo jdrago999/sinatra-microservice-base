@@ -1,17 +1,26 @@
 
-ENV['RACK_TEST'] = 'test'
+ENV['RACK_ENV'] = 'test'
 
 require 'database_cleaner'
 require 'webmock'
 require 'bundler'
-require 'debugger'
+require 'ruby-debug'
+require 'factory_girl'
+require 'faker'
 require './app'
 Bundler.load
 
 require 'my_service'
 
+silence_stream STDOUT do
+  load "./db/schema.rb"
+end
+
 RSpec.configure do |config|
   config.include WebMock::API
+
+
+  Dir["./spec/factories/**.rb"].each {|f| require f}
 
   # This DatabaseCleaner strategy comes from an excellent answer here:
   # http://stackoverflow.com/a/14197798/3299764
