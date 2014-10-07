@@ -1,0 +1,20 @@
+#!/usr/bin/env rake
+begin
+  require 'bundler/setup'
+rescue LoadError
+  puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
+end
+
+Bundler::GemHelper.install_tasks
+
+
+desc 'Interactive console with gem pre-loaded'
+task :console do
+  require 'irb'
+  require 'irb/completion'
+  require 'api_example'
+
+  ARGV.clear
+  puts "Console Ready! (note: all factories and models are loaded)"
+  IRB.start
+end

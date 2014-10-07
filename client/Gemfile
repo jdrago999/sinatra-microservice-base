@@ -1,0 +1,9 @@
+source "http://rubygems.org"
+
+gem 'rake'
+gem 'rest-client'
+
+if File.exists?('api_example.gemspec')
+  gemspec
+end
+

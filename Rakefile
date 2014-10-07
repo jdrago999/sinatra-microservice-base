@@ -10,8 +10,8 @@ require 'sinatra/activerecord/rake'
 
 
 RSpec::Core::RakeTask.new
-
-task :console do
+require 'dotenv/tasks'
+task :console => :dotenv do
   require 'irb'
   require 'irb/completion'
   require 'ruby-debug'

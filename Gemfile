@@ -15,12 +15,16 @@ gem 'puma'
 
 gem 'knife-solo'
 gem 'librarian-chef'
-gem 'dotenv-rails'
+gem 'dotenv'
 gem 'dotenv-deployment'
 gem 'sinatra-contrib'
+
 group :development, :test do
   gem 'debugger'
+  gem 'shotgun' # Auto-reload sinatra app on change
 end
+
+gem 'api_client', path: './client'
 
 group :test do
   gem 'rspec'
@@ -31,6 +35,5 @@ group :test do
   gem 'shoulda'
   gem 'database_cleaner'
   gem 'json_spec'
-  gem 'shotgun' # Auto-reload sinatra app on change
+  gem 'webmock'
 end
-
