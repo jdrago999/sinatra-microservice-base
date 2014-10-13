@@ -10,7 +10,7 @@ require 'sinatra/activerecord'
 
 require 'ruby-debug'
 
-class User < ActiveRecord::Base
+class Foobar < ActiveRecord::Base
 end
 
 module MyService
@@ -26,18 +26,18 @@ module MyService
       ActiveRecord::Base.connection.close
     end
 
-    post '/users' do
-      user = User.create(params)
+    post '/foobars' do
+      user = Foobar.create(params)
       user.to_json
     end
 
-    get '/users' do
-      User.all.each.map{|user| {id: user.id, email: user.email}}.to_json
+    get '/foobars' do
+      Foobar.all.each.map{|foobar| {id: foobar.id, name: foobar.name}}.to_json
     end
 
-    get '/users/:id' do
-      user = User.find(params[:id])
-      {id: user.id, email: user.email}.to_json
+    get '/foobars/:id' do
+      foobar = Foobar.find(params[:id])
+      {id: foobar.id, name: foobar.name}.to_json
     end
 
   end

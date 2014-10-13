@@ -5,16 +5,16 @@ require 'ostruct'
     require 'rest_client'
     require 'uri'
 
-    def self.create_user(params)
+    def self.create_foobar(params)
       url = URI(MyService.base_url)
-      url.path = '/users'
+      url.path = '/foobars'
       if ENV['DEBUG']
         RestClient.log = $stderr
       end
       begin
         result = RestClient.post(url.to_s, params)
         data = JSON.parse(result, symbolize_names: true)
-        data[:user]
+        data[:foobar]
       rescue RestClient::Exception => e
         raise "Failed to create user"
       end
