@@ -1,5 +1,6 @@
 
 module MyService
+require 'ostruct'
   class Client
     require 'rest_client'
     require 'uri'
@@ -10,7 +11,13 @@ module MyService
       if ENV['DEBUG']
         RestClient.log = $stderr
       end
-      RestClient.post(url.to_s, params)
+      begin
+        result = RestClient.post(url.to_s, params)
+        data = JSON.parse(result, symbolize_names: true)
+        data[:user]
+      rescue RestClient::Exception => e
+        raise "Failed to create user"
+      end
     end
 
   end
