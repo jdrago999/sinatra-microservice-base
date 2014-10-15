@@ -4,9 +4,9 @@ ENV['RACK_ENV'] = 'test'
 require 'database_cleaner'
 require 'webmock'
 require 'bundler'
-require 'ruby-debug'
 require 'factory_girl'
 require 'faker'
+require 'pry'
 require './app'
 ActiveRecord::Base.logger = nil
 Bundler.load

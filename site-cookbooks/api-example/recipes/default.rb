@@ -11,13 +11,10 @@ ruby 'setup_var_www' do
   code '`mkdir -p /var/www && ln -s /vagrant /var/www/api-example`'
 end
 
-package 'libmysql++-dev' do
-  action :install
-end
+package 'libmysql++-dev'
 
-bash 'bundle' do
-  cwd '/var/www/api-example'
-  code 'bundle'
+bash 'install aglio' do
+  code 'npm install -g aglio'
 end
 
 bash 'add-motd' do

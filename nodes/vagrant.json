@@ -8,6 +8,7 @@
     "rbenv::user",
     "rbenv::vagrant",
     "vim",
+    "nodejs",
     "ohai",
     "nginx-app",
     "api-example"
@@ -15,10 +16,10 @@
   "rbenv": {
     "user_installs": [{
       "user": "vagrant",
-      "rubies": ["1.9.3-p547"],
-      "global": "1.9.3-p547",
+      "rubies": ["2.0.0-p576"],
+      "global": "2.0.0-p576",
       "gems": {
-        "1.9.3-p547": [{
+        "2.0.0-p576": [{
           "name": "bundler"
         }]
       }

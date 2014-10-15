@@ -24,5 +24,15 @@ Development
   * knife-solo
   * chef-solo
   * librarian-chef
+  * dotenv
+  * shotgun
+  * debugger
+  * better_errors
 
+Deployment
+-
+
+  * dotenv-deployment
+  * puma
+  * nginx
 

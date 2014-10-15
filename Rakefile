@@ -14,7 +14,7 @@ require 'dotenv/tasks'
 task :console => :dotenv do
   require 'irb'
   require 'irb/completion'
-  require 'ruby-debug'
+  require 'pry'
   ARGV.clear
   IRB.start
 end

@@ -7,10 +7,14 @@ require 'sinatra/base'
 require 'dotenv'
 Dotenv.load
 require 'sinatra/activerecord'
-
-require 'ruby-debug'
+require 'better_errors'
 
 class Foobar < ActiveRecord::Base
+end
+
+configure :development do
+  use BetterErrors::Middleware
+  BetterErrors.application_root = __dir__
 end
 
 module MyService
