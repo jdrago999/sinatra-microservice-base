@@ -1,5 +1,7 @@
 
 [![Build Status](https://travis-ci.org/jdrago999/sinatra-microservice-base.svg?branch=master)](https://travis-ci.org/jdrago999/sinatra-microservice-base)
+[![Code Climate](https://codeclimate.com/github/jdrago999/sinatra-microservice-base/badges/gpa.svg)](https://codeclimate.com/github/jdrago999/sinatra-microservice-base)
+[![Test Coverage](https://codeclimate.com/github/jdrago999/sinatra-microservice-base/badges/coverage.svg)](https://codeclimate.com/github/jdrago999/sinatra-microservice-base)
 
 # sinatra microservice base
 
@@ -27,7 +29,7 @@ Development
   * librarian-chef
   * dotenv
   * shotgun
-  * debugger
+  * pry
   * better_errors
 
 Deployment
