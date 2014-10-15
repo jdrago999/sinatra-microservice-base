@@ -1,8 +1,7 @@
 
 [![Build Status](https://travis-ci.org/jdrago999/sinatra-microservice-base.svg?branch=master)](https://travis-ci.org/jdrago999/sinatra-microservice-base)
 
-sinatra microservice base
-========================================
+# sinatra microservice base
 
 This project is a starting-point for any Ruby microservice which requires:
 
