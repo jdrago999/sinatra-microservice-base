@@ -10,6 +10,7 @@ require 'factory_girl'
 require 'faker'
 require 'pry'
 require './app'
+
 ActiveRecord::Base.logger = nil
 Bundler.load
 
