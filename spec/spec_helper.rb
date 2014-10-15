@@ -31,6 +31,10 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
   end
 
+  config.after :suite do
+    WebMock.disable!
+  end
+
   config.before :each do
     MyService.base_url = 'http://test.host/'
     stub_request(:any, /test.host/).to_rack(MyService::App)
