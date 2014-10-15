@@ -1,4 +1,6 @@
 
+[![Build Status](https://travis-ci.org/jdrago999/sinatra-microservice-base.svg?branch=master)](https://travis-ci.org/jdrago999/sinatra-microservice-base)
+
 sinatra microservice base
 ========================================
 
