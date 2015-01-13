@@ -8,7 +8,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.omnibus.chef_version = :latest
 
-  config.vm.box = "hashicorp/precise64"
+  config.vm.box = "opscode-ubuntu-12.04"
+  config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-12.04_chef-provisionerless.box"
 
   config.vm.network "private_network", ip: "192.168.33.70"
 
@@ -16,14 +17,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "2048"]
   end
 
-  VAGRANT_JSON = JSON.parse(Pathname(__FILE__).dirname.join('nodes', 'vagrant.json').read)
+  chef_json = JSON.parse(Pathname(__FILE__).dirname.join('chef', 'nodes', 'vagrant.json').read)
+  config.librarian_chef.cheffile_dir = "chef"
   config.vm.provision "chef_solo" do |chef|
-    chef.cookbooks_path = ['cookbooks', 'site-cookbooks']
-    chef.roles_path = 'roles'
-    chef.data_bags_path = 'data_bags'
-    chef.provisioning_path = '/tmp/vagrant-chef'
-    chef.run_list = VAGRANT_JSON.delete('run_list')
-    chef.json = VAGRANT_JSON
+    chef.cookbooks_path = ['chef/cookbooks', 'chef/site-cookbooks']
+    chef.run_list = chef_json.delete('run_list')
+    chef.json = chef_json
   end
 
 end

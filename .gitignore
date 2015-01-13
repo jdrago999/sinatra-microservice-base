@@ -7,5 +7,5 @@ db/*.sqlite3
 tmp/*
 log/*
 client/*.gem
-
-
+chef/tmp
+chef/cookbooks
