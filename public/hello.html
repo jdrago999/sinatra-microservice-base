@@ -1,0 +1,285 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Product API</title><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200"><style>/* Highlight.js Theme Tomorrow */
+.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}</style><style>body,
+h4,
+h5 {
+  font-family: 'Roboto' sans-serif !important;
+}
+h1,
+h2,
+h3,
+.aglio {
+  font-family: 'Raleway' sans-serif !important;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a {
+  display: none;
+}
+h1:hover a,
+h2:hover a,
+h3:hover a,
+h4:hover a,
+h5:hover a {
+  display: inline;
+}
+code {
+  color: #444;
+  background-color: #ddd;
+  font-family: 'Inconsolata' monospace !important;
+}
+a[data-target] {
+  cursor: pointer;
+}
+h4 {
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.back-to-top {
+  position: fixed;
+  z-index: 1;
+  bottom: 0px;
+  right: 24px;
+  padding: 4px 8px;
+  background-color: #eee;
+  text-decoration: none !important;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  border-left: 1px solid rgba(0,0,0,0.1);
+  border-right: 1px solid rgba(0,0,0,0.1);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.panel {
+  overflow: hidden;
+}
+.panel-heading code {
+  margin-left: 3px;
+  color: #c7254e;
+  background-color: rgba(255,255,255,0.7);
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.panel-heading h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+a.list-group-item:hover {
+  background-color: #f8f8f8;
+  border-left: 2px solid #555;
+  padding-left: 15px;
+}
+.indent {
+  display: block;
+  text-indent: 16px;
+}
+.list-group-item {
+  padding-left: 16px;
+}
+.list-group-item .toggle .open {
+  display: block;
+}
+.list-group-item .toggle .closed {
+  display: none;
+}
+.list-group-item.collapsed .toggle .open {
+  display: none;
+}
+.list-group-item.collapsed .toggle .closed {
+  display: block;
+}
+a.list-group-item {
+  font-size: 13px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+a.list-group-item.heading {
+  font-size: 15px;
+  background-color: #f5f5f5;
+}
+a.list-group-item.heading:hover {
+  background-color: #f8f8f8;
+}
+.list-group-item.collapse {
+  display: none;
+}
+.list-group-item.collapse.in {
+  display: block;
+}
+.list-group-item a span.closed {
+  display: none;
+}
+.list-group-item a span.open {
+  display: block;
+}
+.list-group-item a.collapsed span.closed {
+  display: block;
+}
+.list-group-item a.collapsed span.open {
+  display: none;
+}
+#nav {
+  width: inherit;
+  margin-top: 38px;
+  max-width: 255px;
+  top: 0;
+  bottom: 0;
+  padding-right: 12px;
+  padding-bottom: 12px;
+  overflow-y: auto;
+}
+@media (max-width: 1199px) {
+  #nav {
+    max-width: 212px;
+  }
+}
+</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><div class="list-group"><a data-toggle="" data-target="#product-menu" href="#product" class="list-group-item heading collapsed">Product</a><div id="product-menu"><a href="#product-product" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Product</a><a href="#product-product-get" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span><span class="indent">Retrieve A Single Product</span></a><a href="#product-product-patch" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-warning"><i class="fa fa-pencil"></i></span><span class="indent">Edit A Product</span></a><a href="#product-product-delete" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-danger"><i class="fa fa-times"></i></span><span class="indent">Delete A Product</span></a><a href="#product-products-collection" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Products Collection</a><a href="#product-products-collection-get" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span><span class="indent">List All Products</span></a><a href="#product-products-collection-post" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-success"><i class="fa fa-plus"></i></span><span class="indent">Create a Products</span></a></div></div></nav></div><div class="col-md-8"><div><header><div class="page-header"><h1 id="top">Product API</h1></div></header><div class="description"><p>This is a prototype product API.</p>
+<h2>Authentication</h2>
+<p>Currently the Product API does not provide authenticated access.</p>
+<h2>Error States</h2>
+<p>The common <a href="https://github.com/for-GET/know-your-http-well/blob/master/status-codes.md">HTTP Response Status Codes</a> are used.</p>
+</div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="product">Product&nbsp;<a href="#product"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Resources for working with a single product.</p>
+<h4 id="product-product">Product&nbsp;<a href="#product-product"><i class="fa fa-link"></i></a></h4><p>Provides access to a single product.</p>
+<section id="product-product-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Retrieve A Single Product</span></div><div style="float:left"><a href="#product-product-get" class="btn btn-xs btn-primary">GET</a></div><div style="overflow:hidden"><code>/products/{id}</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>ID of the product</p>
+</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#f5ad666bec908f9aed95acd1a7b2a9a3" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="f5ad666bec908f9aed95acd1a7b2a9a3" class="list-group-item panel-collapse collapse"><div class="description"><p>JSON representation of products.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
+"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+"<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Product One"</span></span>,
+"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"This is the full description of the product."</span></span>,
+"<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com"</span></span>,
+"<span class="hljs-attribute">image</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com/image.jpg"</span></span>,
+"<span class="hljs-attribute">thumbnailUrl</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com/image-thumb.jpg"</span></span>,
+"<span class="hljs-attribute">keywords</span>": <span class="hljs-value"><span class="hljs-string">"western, cowboy"</span></span>,
+"<span class="hljs-attribute">brand</span>": <span class="hljs-value"><span class="hljs-string">"Brand Name"</span></span>,
+"<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-string">"Black"</span></span>,
+"<span class="hljs-attribute">itemCondition</span>": <span class="hljs-value"><span class="hljs-string">"New"</span></span>,
+"<span class="hljs-attribute">manufacturer</span>": <span class="hljs-value"><span class="hljs-string">"Manufacturer Name"</span></span>,
+"<span class="hljs-attribute">model</span>": <span class="hljs-value"><span class="hljs-string">"Black"</span></span>,
+"<span class="hljs-attribute">sku</span>": <span class="hljs-value"><span class="hljs-string">"SKU #"</span></span>,
+"<span class="hljs-attribute">weight</span>": <span class="hljs-value"><span class="hljs-string">"12 pounds"</span></span>,
+"<span class="hljs-attribute">width</span>": <span class="hljs-value"><span class="hljs-string">"12 inches"</span></span>,
+"<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-string">"12 inches"</span></span>,
+"<span class="hljs-attribute">depth</span>": <span class="hljs-value"><span class="hljs-string">"12 inches"</span>
+</span>}
+</code></pre></li></ul></section><section id="product-product-patch" class="panel panel-warning"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Edit A Product</span></div><div style="float:left"><a href="#product-product-patch" class="btn btn-xs btn-warning">PATCH</a></div><div style="overflow:hidden"><code>/products/{id}</code></div></div><div class="panel-body"><p>Updates A Product</p>
+</div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>ID of the product</p>
+</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Request</strong><a data-toggle="collapse" data-target="#059f47636d6bccd67909f4d691949d1e" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="059f47636d6bccd67909f4d691949d1e" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
+"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+"<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Product One"</span></span>,
+"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"This is the full description of the product."</span></span>,
+"<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com"</span></span>,
+"<span class="hljs-attribute">image</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com/image.jpg"</span></span>,
+"<span class="hljs-attribute">thumbnailUrl</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com/image-thumb.jpg"</span></span>,
+"<span class="hljs-attribute">keywords</span>": <span class="hljs-value"><span class="hljs-string">"western, cowboy"</span></span>,
+"<span class="hljs-attribute">brand</span>": <span class="hljs-value"><span class="hljs-string">"Brand Name"</span></span>,
+"<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-string">"Black"</span></span>,
+"<span class="hljs-attribute">itemCondition</span>": <span class="hljs-value"><span class="hljs-string">"New"</span></span>,
+"<span class="hljs-attribute">manufacturer</span>": <span class="hljs-value"><span class="hljs-string">"Manufacturer Name"</span></span>,
+"<span class="hljs-attribute">model</span>": <span class="hljs-value"><span class="hljs-string">"Black"</span></span>,
+"<span class="hljs-attribute">sku</span>": <span class="hljs-value"><span class="hljs-string">"SKU #"</span></span>,
+"<span class="hljs-attribute">weight</span>": <span class="hljs-value"><span class="hljs-string">"12 pounds"</span></span>,
+"<span class="hljs-attribute">width</span>": <span class="hljs-value"><span class="hljs-string">"12 inches"</span></span>,
+"<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-string">"12 inches"</span></span>,
+"<span class="hljs-attribute">depth</span>": <span class="hljs-value"><span class="hljs-string">"12 inches"</span>
+</span>}
+</code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#e5d61eaf615a4d3e85a9c3b5d807052b" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="e5d61eaf615a4d3e85a9c3b5d807052b" class="list-group-item panel-collapse collapse"><div class="description"><p>JSON representation of products.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
+"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+"<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Product One"</span></span>,
+"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"This is the full description of the product."</span></span>,
+"<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com"</span></span>,
+"<span class="hljs-attribute">image</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com/image.jpg"</span></span>,
+"<span class="hljs-attribute">thumbnailUrl</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com/image-thumb.jpg"</span></span>,
+"<span class="hljs-attribute">keywords</span>": <span class="hljs-value"><span class="hljs-string">"western, cowboy"</span></span>,
+"<span class="hljs-attribute">brand</span>": <span class="hljs-value"><span class="hljs-string">"Brand Name"</span></span>,
+"<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-string">"Black"</span></span>,
+"<span class="hljs-attribute">itemCondition</span>": <span class="hljs-value"><span class="hljs-string">"New"</span></span>,
+"<span class="hljs-attribute">manufacturer</span>": <span class="hljs-value"><span class="hljs-string">"Manufacturer Name"</span></span>,
+"<span class="hljs-attribute">model</span>": <span class="hljs-value"><span class="hljs-string">"Black"</span></span>,
+"<span class="hljs-attribute">sku</span>": <span class="hljs-value"><span class="hljs-string">"SKU #"</span></span>,
+"<span class="hljs-attribute">weight</span>": <span class="hljs-value"><span class="hljs-string">"12 pounds"</span></span>,
+"<span class="hljs-attribute">width</span>": <span class="hljs-value"><span class="hljs-string">"12 inches"</span></span>,
+"<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-string">"12 inches"</span></span>,
+"<span class="hljs-attribute">depth</span>": <span class="hljs-value"><span class="hljs-string">"12 inches"</span>
+</span>}
+</code></pre></li></ul></section><section id="product-product-delete" class="panel panel-danger"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Delete A Product</span></div><div style="float:left"><a href="#product-product-delete" class="btn btn-xs btn-danger">DELETE</a></div><div style="overflow:hidden"><code>/products/{id}</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>ID of the product</p>
+</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>204</code></strong></li></ul></section><h4 id="product-products-collection">Products Collection&nbsp;<a href="#product-products-collection"><i class="fa fa-link"></i></a></h4><p>Provides access to all products.</p>
+<section id="product-products-collection-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">List All Products</span></div><div style="float:left"><a href="#product-products-collection-get" class="btn btn-xs btn-primary">GET</a></div><div style="overflow:hidden"><code>/products{?q}</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>q</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<p>Keyword query to search for products.</p>
+</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#0acb26aa82b95a414a0f46b0e114f63d" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="0acb26aa82b95a414a0f46b0e114f63d" class="list-group-item panel-collapse collapse"><div class="description"><p>JSON representation of products.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
+"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+"<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Product One"</span></span>,
+"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"This is the full description of the product."</span></span>,
+"<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com"</span></span>,
+"<span class="hljs-attribute">image</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com/image.jpg"</span></span>,
+"<span class="hljs-attribute">thumbnailUrl</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com/image-thumb.jpg"</span></span>,
+"<span class="hljs-attribute">keywords</span>": <span class="hljs-value"><span class="hljs-string">"western, cowboy"</span></span>,
+"<span class="hljs-attribute">brand</span>": <span class="hljs-value"><span class="hljs-string">"Brand Name"</span></span>,
+"<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-string">"Black"</span></span>,
+"<span class="hljs-attribute">itemCondition</span>": <span class="hljs-value"><span class="hljs-string">"New"</span></span>,
+"<span class="hljs-attribute">manufacturer</span>": <span class="hljs-value"><span class="hljs-string">"Manufacturer Name"</span></span>,
+"<span class="hljs-attribute">model</span>": <span class="hljs-value"><span class="hljs-string">"Black"</span></span>,
+"<span class="hljs-attribute">sku</span>": <span class="hljs-value"><span class="hljs-string">"SKU #"</span></span>,
+"<span class="hljs-attribute">weight</span>": <span class="hljs-value"><span class="hljs-string">"12 pounds"</span></span>,
+"<span class="hljs-attribute">width</span>": <span class="hljs-value"><span class="hljs-string">"12 inches"</span></span>,
+"<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-string">"12 inches"</span></span>,
+"<span class="hljs-attribute">depth</span>": <span class="hljs-value"><span class="hljs-string">"12 inches"</span>
+</span>}
+</code></pre></li></ul></section><section id="product-products-collection-post" class="panel panel-success"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Create a Products</span></div><div style="float:left"><a href="#product-products-collection-post" class="btn btn-xs btn-success">POST</a></div><div style="overflow:hidden"><code>/products{?q}</code></div></div><div class="panel-body"><p>Allows the creation of a new product</p>
+</div><ul class="list-group"><li class="list-group-item"><strong>Request</strong><a data-toggle="collapse" data-target="#c35a37473ea7ec435831997c57bbc6a9" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="c35a37473ea7ec435831997c57bbc6a9" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
+"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+"<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Product One"</span></span>,
+"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"This is the full description of the product."</span></span>,
+"<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com"</span></span>,
+"<span class="hljs-attribute">image</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com/image.jpg"</span></span>,
+"<span class="hljs-attribute">thumbnailUrl</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com/image-thumb.jpg"</span></span>,
+"<span class="hljs-attribute">keywords</span>": <span class="hljs-value"><span class="hljs-string">"western, cowboy"</span></span>,
+"<span class="hljs-attribute">brand</span>": <span class="hljs-value"><span class="hljs-string">"Brand Name"</span></span>,
+"<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-string">"Black"</span></span>,
+"<span class="hljs-attribute">itemCondition</span>": <span class="hljs-value"><span class="hljs-string">"New"</span></span>,
+"<span class="hljs-attribute">manufacturer</span>": <span class="hljs-value"><span class="hljs-string">"Manufacturer Name"</span></span>,
+"<span class="hljs-attribute">model</span>": <span class="hljs-value"><span class="hljs-string">"Black"</span></span>,
+"<span class="hljs-attribute">sku</span>": <span class="hljs-value"><span class="hljs-string">"SKU #"</span></span>,
+"<span class="hljs-attribute">weight</span>": <span class="hljs-value"><span class="hljs-string">"12 pounds"</span></span>,
+"<span class="hljs-attribute">width</span>": <span class="hljs-value"><span class="hljs-string">"12 inches"</span></span>,
+"<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-string">"12 inches"</span></span>,
+"<span class="hljs-attribute">depth</span>": <span class="hljs-value"><span class="hljs-string">"12 inches"</span>
+</span>}
+</code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>201</code></strong><a data-toggle="collapse" data-target="#2fcfe2bc271c2519337de8cd8f85c1be" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="2fcfe2bc271c2519337de8cd8f85c1be" class="list-group-item panel-collapse collapse"><div class="description"><p>JSON representation of products.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
+"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+"<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Product One"</span></span>,
+"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"This is the full description of the product."</span></span>,
+"<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com"</span></span>,
+"<span class="hljs-attribute">image</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com/image.jpg"</span></span>,
+"<span class="hljs-attribute">thumbnailUrl</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com/image-thumb.jpg"</span></span>,
+"<span class="hljs-attribute">keywords</span>": <span class="hljs-value"><span class="hljs-string">"western, cowboy"</span></span>,
+"<span class="hljs-attribute">brand</span>": <span class="hljs-value"><span class="hljs-string">"Brand Name"</span></span>,
+"<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-string">"Black"</span></span>,
+"<span class="hljs-attribute">itemCondition</span>": <span class="hljs-value"><span class="hljs-string">"New"</span></span>,
+"<span class="hljs-attribute">manufacturer</span>": <span class="hljs-value"><span class="hljs-string">"Manufacturer Name"</span></span>,
+"<span class="hljs-attribute">model</span>": <span class="hljs-value"><span class="hljs-string">"Black"</span></span>,
+"<span class="hljs-attribute">sku</span>": <span class="hljs-value"><span class="hljs-string">"SKU #"</span></span>,
+"<span class="hljs-attribute">weight</span>": <span class="hljs-value"><span class="hljs-string">"12 pounds"</span></span>,
+"<span class="hljs-attribute">width</span>": <span class="hljs-value"><span class="hljs-string">"12 inches"</span></span>,
+"<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-string">"12 inches"</span></span>,
+"<span class="hljs-attribute">depth</span>": <span class="hljs-value"><span class="hljs-string">"12 inches"</span>
+</span>}
+</code></pre></li></ul></section></div></div></div></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 19 Jan 2015</p><div id="localFile" style="display: none; position: absolute; top: 0; left: 0; width: 100%; color: white; background: red; font-size: 150%; text-align: center; padding: 1em;">This page may not display correctly when opened as a local file. Instead, view it from a web server.
+
+</div></body><script src="//code.jquery.com/jquery-1.11.0.min.js"></script><script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script>(function() {
+  if (location.protocol === 'file:') {
+    document.getElementById('localFile').style.display = 'block';
+  }
+
+}).call(this);
+</script><script>(function() {
+  $('table').addClass('table');
+
+}).call(this);
+</script></html>

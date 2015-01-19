@@ -1,14 +1,16 @@
-
 site "https://supermarket.getchef.com/api/v1"
 
 cookbook 'apt'
 cookbook 'build-essential'
-cookbook 'mysql'
+cookbook 'mysql', '5.6.1'
 cookbook 'ruby_build'
 cookbook 'nodejs', git: 'https://github.com/mdxp/nodejs-cookbook'
-cookbook 'rbenv', git: 'https://github.com/fnichol/chef-rbenv'
+cookbook 'rbenv', git: 'https://github.com/muskox/chef-rbenv'
 cookbook 'vim'
 cookbook 'ohai'
+cookbook 'logrotate'
+cookbook 'monit'
+cookbook 'puma', git: 'https://github.com/yourabi/chef-puma'
 
 cookbook 'nginx-app', path: './site-cookbooks'
 cookbook 'api-example', path: './site-cookbooks'

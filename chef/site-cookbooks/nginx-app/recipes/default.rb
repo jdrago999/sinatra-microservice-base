@@ -14,7 +14,9 @@ service 'nginx' do
   action [:enable, :start]
 end
 
-template '/etc/nginx/nginx.conf' do
+template '/etc/nginx/sites-available/default' do
+  source 'nginx.conf.erb'
   notifies :reload, 'service[nginx]'
 end
+
 

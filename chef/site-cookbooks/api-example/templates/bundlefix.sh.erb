@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ ! $RECALLED ]; then
+  export RECALLED=foo
+  source /etc/profile.d/rbenv.sh && . $0
+  exit
+fi
+
+export RBENV_ROOT=$rbenv_root
+
+cd /var/www/sinatra-microservice && $RBENV_ROOT/shims/bundle && $RBENV_ROOT/shims/bundle install --path /home/vagrant/.rbenv/versions/$(ls -l /home/vagrant/.rbenv/versions/ | awk '{print $9}' | tail -n 1)
